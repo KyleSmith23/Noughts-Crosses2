@@ -10,7 +10,20 @@ board.DisplayBoard();
 // Player - if player X/O setcell = x or o != empty
 public class Player 
 { 
+    public CellType XorO { get;}
 
+    public Player (CellType xorO)
+    {
+        XorO = xorO;
+    }
+
+    public void TakeTurn(Board board)
+    {
+        Console.Write("Choose a square");
+        string turn = Console.ReadLine();
+        
+
+    }
 
 
 }
