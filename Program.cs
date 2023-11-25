@@ -5,8 +5,7 @@ Player player1 = new Player(CellType.X);
 Player player2 = new Player(CellType.O);
 
 while (true)
-{
-
+{   
     board.DisplayBoard();
     player1.TakeTurn(board);
     board.DisplayBoard();
@@ -20,17 +19,14 @@ while (true)
 public class Player 
 { 
     public CellType XorO { get;}
-
     public Player (CellType xorO)
     {
         XorO = xorO;
     }
-
     public void TakeTurn(Board board)
     {
         bool cellAvailable = false;
-
-        
+                
         while (!cellAvailable)
         {
             Console.Write($"Choose a square player '{XorO}'");
@@ -40,30 +36,48 @@ public class Player
             {
                 case "1":
                     cellAvailable = board.SetCell(0, 0, XorO);
+                    if (cellAvailable == false)
+                    { Console.WriteLine("That square is taken, pick another."); }
                     continue;
                 case "2":
                     cellAvailable = board.SetCell(0, 1, XorO);
+                    if (cellAvailable == false)
+                    { Console.WriteLine("That square is taken, pick another."); }
                     continue;
                 case "3":
                     cellAvailable = board.SetCell(0, 2, XorO);
+                    if (cellAvailable == false)
+                    { Console.WriteLine("That square is taken, pick another."); }
                     continue;
                 case "4":
                     cellAvailable = board.SetCell(1, 0, XorO);
+                    if (cellAvailable == false)
+                    { Console.WriteLine("That square is taken, pick another."); }
                     continue;
                 case "5":
                     cellAvailable = board.SetCell(1, 1, XorO);
+                    if (cellAvailable == false)
+                    { Console.WriteLine("That square is taken, pick another."); }
                     continue;
                 case "6":
                     cellAvailable = board.SetCell(1, 2, XorO);
+                    if (cellAvailable == false)
+                    { Console.WriteLine("That square is taken, pick another."); }
                     continue;
                 case "7":
                     cellAvailable = board.SetCell(2, 0, XorO);
+                    if (cellAvailable == false)
+                    { Console.WriteLine("That square is taken, pick another."); }
                     continue;
                 case "8":
                     cellAvailable = board.SetCell(2, 1, XorO);
+                    if (cellAvailable == false)
+                    { Console.WriteLine("That square is taken, pick another."); }
                     continue;
                 case "9":
                     cellAvailable = board.SetCell(2, 2, XorO);
+                    if (cellAvailable == false)
+                    { Console.WriteLine("That square is taken, pick another."); }
                     continue;
                 default:
                     Console.WriteLine("Please enter a valid square number.");
@@ -72,7 +86,6 @@ public class Player
             }
 
         }
-
         
     }       
  }
