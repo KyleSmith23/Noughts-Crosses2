@@ -6,21 +6,16 @@ Player player2 = new Player(CellType.O);
 
 while (true)
 {
-    PlayGame(player1, player2, board);
-}
 
-
-
-
-
-void PlayGame(Player p1, Player p2, Board board)
-{
     board.DisplayBoard();
     player1.TakeTurn(board);
     board.DisplayBoard();
     player2.TakeTurn(board);
-
 }
+
+
+
+
 
 public class Player 
 { 
@@ -32,45 +27,53 @@ public class Player
     }
 
     public void TakeTurn(Board board)
-    {                      
+    {
+        bool cellAvailable = false;
+
+        
+        while (!cellAvailable)
+        {
             Console.Write($"Choose a square player '{XorO}'");
             string turn = Console.ReadLine();
-
 
             switch (turn)
             {
                 case "1":
-                    board.SetCell(0, 0, XorO);
-                    return;
+                    cellAvailable = board.SetCell(0, 0, XorO);
+                    continue;
                 case "2":
-                    board.SetCell(0, 1, XorO);
-                    return;
+                    cellAvailable = board.SetCell(0, 1, XorO);
+                    continue;
                 case "3":
-                    board.SetCell(0, 2, XorO);
-                    return;
+                    cellAvailable = board.SetCell(0, 2, XorO);
+                    continue;
                 case "4":
-                    board.SetCell(1, 0, XorO);
-                    return;
+                    cellAvailable = board.SetCell(1, 0, XorO);
+                    continue;
                 case "5":
-                    board.SetCell(1, 1, XorO);
-                    return;
+                    cellAvailable = board.SetCell(1, 1, XorO);
+                    continue;
                 case "6":
-                    board.SetCell(1, 2, XorO);
-                    return;
+                    cellAvailable = board.SetCell(1, 2, XorO);
+                    continue;
                 case "7":
-                    board.SetCell(2, 0, XorO);
-                    return;
+                    cellAvailable = board.SetCell(2, 0, XorO);
+                    continue;
                 case "8":
-                    board.SetCell(2, 1, XorO);
-                    return;
+                    cellAvailable = board.SetCell(2, 1, XorO);
+                    continue;
                 case "9":
-                    board.SetCell(2, 2, XorO);
-                    return;
+                    cellAvailable = board.SetCell(2, 2, XorO);
+                    continue;
                 default:
                     Console.WriteLine("Please enter a valid square number.");
-                    return;
+                    cellAvailable = false;
+                    continue;
             }
 
+        }
+
+        
     }       
  }
 
