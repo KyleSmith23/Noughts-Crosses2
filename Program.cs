@@ -1,13 +1,27 @@
 ﻿using System.Linq.Expressions;
 
 Board board = new Board();
+Player player1 = new Player(CellType.X);
+Player player2 = new Player(CellType.O);
 
-board.SetCell(1, 2, CellType.X);
-board.DisplayBoard();
+while (true)
+{
+    PlayGame(player1, player2, board);
+}
 
 
 
-// Player - if player X/O setcell = x or o != empty
+
+
+void PlayGame(Player p1, Player p2, Board board)
+{
+    board.DisplayBoard();
+    player1.TakeTurn(board);
+    board.DisplayBoard();
+    player2.TakeTurn(board);
+
+}
+
 public class Player 
 { 
     public CellType XorO { get;}
@@ -18,15 +32,50 @@ public class Player
     }
 
     public void TakeTurn(Board board)
-    {
-        Console.Write("Choose a square");
-        string turn = Console.ReadLine();
-        
-
-    }
+    {                      
+            Console.Write($"Choose a square player '{XorO}'");
+            string turn = Console.ReadLine();
 
 
-}
+            switch (turn)
+            {
+                case "1":
+                    board.SetCell(0, 0, XorO);
+                    return;
+                case "2":
+                    board.SetCell(0, 1, XorO);
+                    return;
+                case "3":
+                    board.SetCell(0, 2, XorO);
+                    return;
+                case "4":
+                    board.SetCell(1, 0, XorO);
+                    return;
+                case "5":
+                    board.SetCell(1, 1, XorO);
+                    return;
+                case "6":
+                    board.SetCell(1, 2, XorO);
+                    return;
+                case "7":
+                    board.SetCell(2, 0, XorO);
+                    return;
+                case "8":
+                    board.SetCell(2, 1, XorO);
+                    return;
+                case "9":
+                    board.SetCell(2, 2, XorO);
+                    return;
+                default:
+                    Console.WriteLine("Please enter a valid square number.");
+                    return;
+            }
+
+    }       
+ }
+
+
+
 
 
 public class Board
